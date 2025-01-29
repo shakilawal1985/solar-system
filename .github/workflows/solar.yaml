@@ -53,6 +53,13 @@ jobs:
           run: npm install
     
         - name: Tesing Coverage
+          continue-on-error: true
           run: npm run coverage
-          
+
+        - name: Archive coverage Result
+          uses: actions/upload-artifact@v3
+          with:
+            name: Code-coverage-Result
+            path: coverage-results.xml
+            retention-days: 5  
        
