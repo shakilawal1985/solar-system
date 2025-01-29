@@ -62,19 +62,19 @@ jobs:
             name: Code-coverage-Result
             path: coverage-results.xml
             retention-days: 5  
-  
-  show-context:
-    runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+    show-context:
+      runs-on: ubuntu-latest
 
-    - name: show github context
-      env: 
-        GITHUB_CONTEXT: ${{ toJSON(github)}}
-      run: |
-        echo "GitHub Context:"
-        echo "$GITHUB_CONTEXT"
+      steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: show github context
+        env: 
+          GITHUB_CONTEXT: ${{ toJSON(github)}}
+        run: |
+          echo "GitHub Context:"
+          echo "$GITHUB_CONTEXT"
 
        
